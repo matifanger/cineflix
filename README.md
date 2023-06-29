@@ -24,3 +24,20 @@ Start the development server on http://localhost:3000
 # yarn
 yarn dev
 ```
+
+## Run tests
+
+```bash
+yarn test
+```
+
+## What's included
+
+[x] Persistent dummy auth with cookies
+[x] Protected routes
+[x] Landing page / Movie list / Movie detail / Login
+[x] Responsive design
+[x] Server/api tests
+[x] Dockerized
+[x] Deployed on Netlify
+[x] Typescript
