@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { PropType, ref } from 'vue'
-import { Movie } from '../../global'
+import { Movie } from 'global'
 
 defineProps({
     data: {

@@ -3,13 +3,16 @@ import { useUserStore } from '@/stores/user'
 const userStore = useUserStore()
 const router = useRouter()
 
+// Logout function
 const logout = () => {
     userStore.logOut()
     router.push('/')
 }
 
+// Header background
 const scrollClass = ref('bg-transparent')
 
+// Change header background on scroll
 onMounted(() => {
     let lastScrollY = window.scrollY
 

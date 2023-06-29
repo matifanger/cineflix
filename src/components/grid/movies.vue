@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { PropType } from 'vue'
-import { Movie } from '../../global'
+import { Movie } from 'global'
 
 const props = defineProps({
     data: {
