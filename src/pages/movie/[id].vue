@@ -13,8 +13,8 @@ if (movie.value?.Response === 'False') {
 }
 
 // Get movies from the API
-const search = 'harry'
-const { data: movies } = await useAsyncData<MoviesResponse>('movies' + route.params.id, () =>
+const search = getRandomMovie()
+const { data: movies } = await useAsyncData<MoviesResponse>('movies' + route.params.id + search, () =>
     $fetch(`/api/getdata?s=${search}`)
 )
 

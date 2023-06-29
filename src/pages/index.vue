@@ -5,7 +5,7 @@ import { useUserStore } from '@/stores/user'
 const userStore = useUserStore()
 
 // Search query
-const search = 'fast'
+const search = getRandomMovie()
 
 // Store data here after fetching it (only if user is logged in)
 const result = ref(null) as Ref<MoviesResponse | null>
