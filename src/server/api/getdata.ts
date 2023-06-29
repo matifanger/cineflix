@@ -3,7 +3,8 @@ const runtimeConfig = useRuntimeConfig()
 const BASE_URL = runtimeConfig.BASE_URL
 const API_KEY = runtimeConfig.API_KEY
 
-// Calls directly from the server, so we can hide the API_KEY key and the BASE_URL.
+// This endpoint is used to fetch data from the OMDB API via the server.
+// API_KEY and BASE_URL are hidden to the client.
 export default defineEventHandler(async (event) => {
     // Query must contain any of the parameters accepted by the API.
     // https://www.omdbapi.com/
