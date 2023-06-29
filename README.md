@@ -31,13 +31,25 @@ yarn dev
 yarn test
 ```
 
+## Build docker
+
+```bash
+docker build -t cineflix .
+```
+
+## Run docker
+
+```bash
+docker run -p 3000:3000 cineflix:latest
+```
+
 ## What's included
 
-[x] Persistent dummy auth with cookies
-[x] Protected routes
-[x] Landing page / Movie list / Movie detail / Login
-[x] Responsive design
-[x] Server/api tests
-[x] Dockerized
-[x] Deployed on Netlify
-[x] Typescript
+-   Persistent dummy auth with cookies
+-   Protected routes
+-   Landing page / Movie list / Movie detail / Login
+-   Responsive design
+-   Server/api tests
+-   Dockerized
+-   Deployed on Netlify
+-   Typescript
