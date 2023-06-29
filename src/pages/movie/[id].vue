@@ -1,16 +1,24 @@
 <script setup lang="ts">
 import { DetailedMovieResponse, MoviesResponse } from 'global'
 const route = useRoute()
+const router = useRouter()
 
+// Get details from the API
 const { data: movie } = await useAsyncData<DetailedMovieResponse>('movie' + route.params.id, () =>
     $fetch(`/api/getdata?i=${route.params.id}`)
 )
 
+if (movie.value?.Response === 'False') {
+    router.push('/404')
+}
+
+// Get movies from the API
 const search = 'fast'
 const { data: movies } = await useAsyncData<MoviesResponse>('movies' + route.params.id, () =>
     $fetch(`/api/getdata?s=${search}`)
 )
 
+// Set a color for the metascore background
 const metascore_color = computed(() => {
     const score = parseInt(movie.value?.Metascore || '0')
 
