@@ -13,6 +13,7 @@ useHead({
             content: 'High-Quality, Unique, and free movies for anyone - Cineflix',
         },
     ],
+    link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
 })
 </script>
 
