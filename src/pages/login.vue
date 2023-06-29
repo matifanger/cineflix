@@ -15,7 +15,7 @@ const disabled = computed(() => {
 
 const loading = ref(false)
 
-const errors = ref<null | string[]>(['Password must be at least 8 characters'])
+const errors = ref<null | string[]>(null)
 
 const login = async () => {
     try {
