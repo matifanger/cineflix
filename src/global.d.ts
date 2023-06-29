@@ -1,13 +1,3 @@
-export interface LoginSuccessResponse extends Response {
-    status: number
-    token: string
-}
-
-export interface LoginErrorResponse extends Response {
-    statusCode: number
-    statusMessage: string
-}
-
 export interface Movie {
     Title: string
     Year: string
