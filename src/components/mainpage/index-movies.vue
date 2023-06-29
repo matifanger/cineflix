@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-interface movie {}
+import { Movie } from 'global'
 
 const props = defineProps({
     data: {
-        type: Array as PropType<movie[]>,
+        type: Array as PropType<Movie[]>,
         required: true,
     },
 })

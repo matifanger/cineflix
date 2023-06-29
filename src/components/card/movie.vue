@@ -30,9 +30,9 @@ const error = ref(false)
 
 <style lang="postcss" scoped>
 .movie {
-    @apply overflow-hidden;
+    @apply overflow-hidden w-full h-full;
     &__image {
-        @apply h-60 xs:h-full rounded-lg;
+        @apply h-60 xs:h-96 w-full rounded-lg;
     }
     &__fallback {
         @apply px-5 py-10 flex items-center justify-center text-xl md:text-2xl h-full text-center border border-gray-300 border-opacity-30 rounded-lg backdrop-blur-md;
