@@ -104,7 +104,7 @@ useHead({
 
 <style lang="postcss" scoped>
 .login {
-    @apply flex items-center justify-center pt-52 lg:pt-0 lg:min-h-screen px-2;
+    @apply flex items-center justify-center pt-48 lg:pt-0 lg:min-h-screen px-2;
     & h1 {
         @apply mb-4 text-center text-2xl font-bold text-gray-200 md:mb-8 lg:text-3xl;
     }
