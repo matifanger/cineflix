@@ -1,18 +1,5 @@
-<script lang="ts" setup></script>
-
 <template>
-    <Html lang="en">
-        <Body>
-            <NuxtLayout>
-                <NuxtLoadingIndicator />
-                <NuxtPage />
-            </NuxtLayout>
-        </Body>
-    </Html>
+    <NuxtLayout>
+        <NuxtPage />
+    </NuxtLayout>
 </template>
-
-<style lang="postcss">
-body {
-    @apply bg-white text-gray-800 antialiased transition-colors duration-300;
-}
-</style>

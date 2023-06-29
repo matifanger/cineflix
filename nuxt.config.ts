@@ -1,21 +1,12 @@
 import presetIcons from '@unocss/preset-icons'
+import { resolve } from 'path'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     srcDir: 'src',
     ssr: true,
 
-    modules: [
-        // Module descriptions -> README.md
-        '@vueuse/nuxt',
-        '@nuxtjs/tailwindcss',
-        '@nuxt/image-edge',
-        '@nuxtjs/color-mode',
-        '@pinia/nuxt',
-        '@unocss/nuxt',
-        '@unlighthouse/nuxt',
-        'nuxt-headlessui',
-    ],
+    modules: ['@vueuse/nuxt', '@nuxtjs/tailwindcss', '@pinia/nuxt', '@unocss/nuxt'],
 
     postcss: {
         plugins: {
@@ -26,7 +17,6 @@ export default defineNuxtConfig({
         },
     },
 
-    // How to install more icons packages -> README.md
     unocss: {
         uno: false,
         preflight: false,
@@ -41,6 +31,12 @@ export default defineNuxtConfig({
         ],
     },
 
+    runtimeConfig: {
+        BASE_URL: 'http://www.omdbapi.com',
+        // Api key should be hidden in .env file. This is just for demo purposes.
+        API_KEY: '7642bb42',
+    },
+
     css: ['@/assets/css/main.pcss', '@/assets/css/tailwind.css'],
 
     vueuse: {
@@ -50,12 +46,6 @@ export default defineNuxtConfig({
     sourcemap: {
         server: true,
         client: true,
-    },
-
-    colorMode: {
-        classSuffix: '',
-        fallback: 'light',
-        storageKey: 'color-mode',
     },
 
     devtools: { enabled: true },
