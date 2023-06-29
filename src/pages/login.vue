@@ -4,22 +4,27 @@ import { useUserStore } from '@/stores/user'
 const router = useRouter()
 const userStore = useUserStore()
 
+// Form filled for faster login
 const form = ref({
     email: 'admin@admin.com',
     password: 'password',
 })
 
+// Disable button if form is not filled
 const disabled = computed(() => {
-    return !form.value.email || !form.value.password
+    return !form.value.email || !form.value.password || loading.value
 })
 
 const loading = ref(false)
-
 const errors = ref<null | string[]>(null)
 
 const login = async () => {
     try {
         loading.value = true
+        // add a pause of 1 second to show the loading animation
+        await new Promise((r) => setTimeout(r, 1000))
+
+        // Send login request
         const res = await fetch('/api/login', {
             method: 'POST',
             body: JSON.stringify(form.value),
@@ -37,6 +42,7 @@ const login = async () => {
 
             router.push('/')
         } else {
+            // Set errors
             const jsonres = await res.json()
             errors.value = jsonres.data
         }
@@ -63,7 +69,7 @@ useHead({
             <form class="login__form" @submit.prevent="login">
                 <div class="form">
                     <div v-if="errors" class="form__errors">
-                        <button @click="errors = null">X</button>
+                        <button @click="errors = null"><UnoIcon class="i-mdi:close" /></button>
                         <p v-for="err in errors">{{ err }}</p>
                     </div>
                     <div>
@@ -88,7 +94,10 @@ useHead({
                         />
                     </div>
 
-                    <button :disabled="disabled" type="submit" class="form__submit">Login</button>
+                    <button :disabled="disabled" type="submit" class="form__submit">
+                        <span :class="loading ? 'text-transparent' : ''">Login</span>
+                        <UnoIcon v-if="loading" class="i-mdi:loading animate-spin text-2xl absolute" />
+                    </button>
                 </div>
             </form>
         </div>
@@ -109,9 +118,9 @@ useHead({
         & .form {
             @apply flex flex-col gap-4 p-4 md:p-8;
             &__errors {
-                @apply relative bg-red-200 text-red-700 p-3 rounded text-sm font-semibold border-l-4 border-red-500;
+                @apply relative bg-red-200 text-red-700 p-3 rounded text-sm font-semibold border-l-4 border-red-500 pt-5;
                 & button {
-                    @apply absolute -right-2 -top-3.5 text-red-600 text-2xl font-bold;
+                    @apply absolute right-0 top-0 text-red-600 text-lg font-bold hover:brightness-125 transition;
                 }
             }
             &__label {
@@ -121,11 +130,11 @@ useHead({
                 @apply w-full rounded bg-zinc-900 px-3 py-2 text-gray-200 outline-none ring-indigo-400 transition duration-100 focus:ring;
             }
             &__submit {
-                @apply disabled:cursor-not-allowed
+                @apply relative disabled:cursor-not-allowed
                  disabled:bg-gray-400 disabled:border-gray-400 mt-4 flex items-center justify-center 
-                 gap-2 rounded-lg border border-gray-300 bg-white px-8 py-2 text-center text-sm
+                 gap-2 rounded-lg bg-white px-8 py-2 text-center text-sm
                  font-semibold text-gray-800 outline-none ring-gray-300 transition
-                  hover:brightness-90 focus-visible:ring active:bg-gray-200 md:text-base;
+                  enabled:hover:brightness-90 focus-visible:ring md:text-base;
             }
         }
     }
