@@ -22,6 +22,6 @@ const props = defineProps({
 
 <style lang="postcss" scoped>
 .grid-movies {
-    @apply grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5;
+    @apply grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 place-items-center;
 }
 </style>

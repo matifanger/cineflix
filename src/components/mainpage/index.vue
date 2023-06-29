@@ -18,7 +18,7 @@
 
 <style lang="postcss" scoped>
 .homepage {
-    @apply h-screen flex justify-center items-center bg-cover bg-center;
+    @apply px-4 text-center pt-52 lg:pt-0 lg:min-h-screen flex justify-center items-center bg-cover bg-center;
     &__wrapper {
         @apply space-y-7;
     }

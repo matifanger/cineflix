@@ -32,7 +32,7 @@ const error = ref(false)
 .movie {
     @apply overflow-hidden;
     &__image {
-        @apply h-full rounded-lg;
+        @apply h-60 xs:h-full rounded-lg;
     }
     &__fallback {
         @apply px-5 py-10 flex items-center justify-center text-xl md:text-2xl h-full text-center border border-gray-300 border-opacity-30 rounded-lg backdrop-blur-md;

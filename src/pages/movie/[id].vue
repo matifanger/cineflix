@@ -13,7 +13,7 @@ if (movie.value?.Response === 'False') {
 }
 
 // Get movies from the API
-const search = 'fast'
+const search = 'harry'
 const { data: movies } = await useAsyncData<MoviesResponse>('movies' + route.params.id, () =>
     $fetch(`/api/getdata?s=${search}`)
 )
@@ -97,9 +97,12 @@ useHead({
     }
     &__wrapper {
         @apply flex flex-col gap-5;
+        & img {
+            @apply w-52 mx-auto sm:w-auto;
+        }
     }
     & h1 {
-        @apply text-5xl font-semibold;
+        @apply text-4xl lg:text-5xl font-semibold;
     }
     &__info {
         @apply flex flex-wrap justify-between items-center gap-5 lg:gap-10 mb-3;
